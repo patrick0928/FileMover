@@ -474,7 +474,6 @@ namespace FileMover.ViewModel
             {
                 TimeCollection.Add(new TimeComboBox { Duration = item });
             }
-            //var data = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
         }        
     }
 }
