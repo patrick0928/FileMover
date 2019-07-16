@@ -1,0 +1,276 @@
+﻿<Window x:Class="FileMover.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FileMover"
+        mc:Ignorable="d"
+        Icon="pack://application:,,,/img/App.png"
+        Title="FILE MOVER" Height="450"  MinHeight="450" WindowStartupLocation="CenterScreen"
+                           MinWidth="{Binding WindowMinWidth, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                           Width="{Binding WindowWidth, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+    <Window.Resources>
+        <Image x:Key="Image" Source="pack://application:,,,/img/App.png"/>
+        
+        <ContextMenu x:Key="NotifierContextMenu" Placement="MousePoint">
+            <MenuItem Header="Open" Click="Menu_Open"/>
+            <MenuItem Header="Close" Click="Menu_Close"/>
+        </ContextMenu>
+        <Storyboard x:Key="MoveFileAnimation" RepeatBehavior="5">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="sourceFolder1">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="emptyFolder1">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="file">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1.4" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="file">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="file">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="147.333"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="file">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="1.333"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="file">
+                <EasingDoubleKeyFrame KeyTime="0" Value="10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="16"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="file">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="10"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="16"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="sourceFolder2">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1.4" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1.6" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="emptyFolder3">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1.4" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1.6" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="sourceFolder2">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.3" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Style x:Key="ScaleStyle" TargetType="Button">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Grid.ZIndex" Value="1"/>
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Button.Click">
+            <BeginStoryboard Storyboard="{StaticResource MoveFileAnimation}"/>
+        </EventTrigger>
+    </Window.Triggers>
+  
+    <Grid>
+        <Grid MinWidth="400">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{Binding ColumnWidth, UpdateSourceTrigger=PropertyChanged}"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Height="100" Grid.ColumnSpan="2" VerticalAlignment="Stretch" Background="#FF17344D">
+                <Image Source="pack://application:,,,/img/fileMoverLogo.png" Height="68"></Image>
+               
+            </StackPanel>
+
+            <Grid Grid.Column="0" Grid.Row="1" Background="#FF1E3F5D">
+                <TextBlock Height="20" Width="100" Text="System Logs" Foreground="Wheat" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBlock>
+                <ListBox Margin="0 20 0 40" Background="#FF224161" Grid.Column="0" Grid.Row="1" Foreground="#FFF1372E" ItemsSource="{Binding LogCollection}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Logs}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Button Style="{StaticResource ScaleStyle}" Content="Clear Logs" Height="20" Width="100" VerticalAlignment="Bottom" Margin="0 0 0 10"
+                        Command="{Binding ClearLogsCommand}"/>
+            </Grid>
+           
+
+            <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Stretch">
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#FF1E3F5D" Offset="0"></GradientStop>
+                        <GradientStop Color="#FF0D2944" Offset="0.25"></GradientStop>
+                        <GradientStop Color="#FF0A1A29" Offset="0.50"></GradientStop>
+                        <GradientStop Color="#FF01080E" Offset="0.75"></GradientStop>
+                        <GradientStop Color="Black" Offset="1.0"></GradientStop>
+                    </LinearGradientBrush>
+                </Grid.Background>
+
+                <Button Style="{StaticResource ScaleStyle}" Command="{Binding ShowLogsCommand}" Margin="0 0 0 50" HorizontalAlignment="Left" Height="80" Width="20" Background="Transparent" Padding="0">
+                    <Image Source="{Binding ArrowImage}" Stretch="Fill"/>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <ContentPresenter Content="{TemplateBinding Content}"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                
+                <GroupBox Margin="0 0 120 100" Height="240" Width="300"  Header="Source" Foreground="Wheat" Padding="0" IsEnabled="{Binding IsEnable}">
+                    <Grid>
+                        <TextBlock Text="Path 1" Height="20" Width="50" Margin="0 0 230 95"></TextBlock>
+                        <Button Style="{StaticResource ScaleStyle}" Height="16" Width="20"  Margin="0 0 180 100" Padding="0" BorderBrush="Transparent" BorderThickness="0" 
+                            Command="{Binding GetPathCommand}"
+                            CommandParameter="SourcePath1">
+
+                            <Image Source="pack://application:,,,/img/Folder.ico"/>
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <ContentPresenter Content="{TemplateBinding Content}"/>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <TextBox Height="20" Width="200" Margin="50 0 0 100" Text="{Binding SourcePath1, UpdateSourceTrigger=PropertyChanged}"/>
+
+                        <TextBlock Text="Path 2" Height="20" Width="50" Margin="0 0 230 0"></TextBlock>
+                        <Button Style="{StaticResource ScaleStyle}" Height="16" Width="20"  Margin="0 0 180 0" Padding="0" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" 
+                            Command="{Binding GetPathCommand}"
+                            CommandParameter="SourcePath2">
+                            <Image Source="pack://application:,,,/img/Folder.ico"/>
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <ContentPresenter Content="{TemplateBinding Content}"/>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBox Height="20" Width="200" Margin="50 0 0 0" Text="{Binding SourcePath2, UpdateSourceTrigger=PropertyChanged}"/>
+
+                        <TextBlock Text="Path 3" Height="20" Width="50" Margin="0 95 230 0"></TextBlock>
+                        <Button Style="{StaticResource ScaleStyle}" Height="16" Width="20"  Margin="0 95 180 0" Padding="0" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" 
+                            Command="{Binding GetPathCommand}"
+                            CommandParameter="SourcePath3">
+
+                            <Image Source="pack://application:,,,/img/Folder.ico"/>
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <ContentPresenter Content="{TemplateBinding Content}"/>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <TextBox Height="20" Width="200" Margin="50 100 0 0" Text="{Binding SourcePath3, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                </GroupBox>
+
+                <GroupBox Header="File Type" Foreground="Wheat" Height="170" Width="120" Margin="320 0 0 170" IsEnabled="{Binding IsEnable}">
+                    <StackPanel Margin="0 10 0 0">
+                        <TextBlock Text="Path 1" Height="20" />
+                        <ComboBox ItemsSource="{Binding Path=FileCollection}"
+                                  SelectedIndex="0"
+                                  DisplayMemberPath="Type"
+                                  SelectedValuePath="Type"
+                                  SelectedValue="{Binding Path=FileType1}"/>
+
+                        <TextBlock Text="Path 2" Height="20"/>
+                        <ComboBox ItemsSource="{Binding Path=FileCollection}"
+                                  SelectedIndex="1"
+                                  DisplayMemberPath="Type2"
+                                  SelectedValuePath="Type2"
+                                  SelectedValue="{Binding Path=FileType2}"/>
+
+                        <TextBlock Text="Path 3" Height="20"/>
+                        <ComboBox ItemsSource="{Binding Path=FileCollection}"
+                                  SelectedIndex="2"
+                                  DisplayMemberPath="Type3"
+                                  SelectedValuePath="Type3"
+                                  SelectedValue="{Binding Path=FileType3}"/>
+                    </StackPanel>
+                </GroupBox>
+
+                <GroupBox Header="Duration" Foreground="Wheat" Height="70" Width="120" Margin="320 70 0 0" IsEnabled="{Binding IsEnable}">
+                    <ComboBox Width="100" Height="20"
+                  SelectedIndex="0"                 
+                  ItemsSource="{Binding Path=TimeCollection}"
+                  DisplayMemberPath="Duration"
+                  SelectedValuePath="Duration"
+                  SelectedValue="{Binding Path=TimeComboBox}">
+                    </ComboBox>
+                </GroupBox>
+
+                <TextBlock Text="Destination Path" Foreground="White" Width="89" Height="20" Margin="0 215 330 0"/>
+                <Button Style="{StaticResource ScaleStyle}" Height="16" Width="20"  Margin="0 210 215 0" Padding="0" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" 
+                            Command="{Binding GetPathCommand}"
+                            CommandParameter="DestinationPath">
+
+                    <Image Source="pack://application:,,,/img/Folder.ico"/>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <ContentPresenter Content="{TemplateBinding Content}"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <TextBox Height="20" Width="310" Margin="120 210 0 0" Text="{Binding DestinationPath, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding IsEnable}"/>
+
+                <StackPanel Orientation="Horizontal" Width="210" Margin="230 290 0 0">
+                    <Button Style="{StaticResource ScaleStyle}" Content="Start" Height="30" Width="100"  Command="{Binding StartButtonCommand}" IsEnabled="{Binding IsEnable}">
+                        <Button.Triggers>
+                            <EventTrigger RoutedEvent="Button.Click">
+                                <BeginStoryboard Storyboard="{StaticResource MoveFileAnimation}"/>
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+                    <Button Style="{StaticResource ScaleStyle}" Content="Suspend" Height="30" Width="100" Margin="5 0 0 0" Command="{Binding SuspendButtonCommand}" IsEnabled="{Binding IsSuspended}"></Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Width="220" Height="50" Margin="0 280 200 0" Visibility="{Binding IsVisible}">
+                    <Image x:Name="sourceFolder1" Width="15" Height="15" Source="pack://application:,,,/Animation Icon/source.png"/>
+                    <Image x:Name="emptyFolder1" Width="15" Height="15" Source="pack://application:,,,/Animation Icon/emptyFolder.png" Margin="-20 0 0 0"/>
+                    <Image x:Name="file" Width="10" Height="10" Source="pack://application:,,,/Animation Icon/file.png" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Image x:Name="sourceFolder2" Width="20" Height="20" Source="pack://application:,,,/Animation Icon/source.png" Margin="150 0 0 0"/>
+                    <Image x:Name="emptyFolder3" Width="20" Height="20" Source="pack://application:,,,/Animation Icon/emptyFolder.png" Margin="-20 0 0 0"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
