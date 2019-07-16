@@ -1,0 +1,15 @@
+C:\Users\ps-it4\source\repos\FileMover\FileMover\obj\Debug\FileMover.csprojAssemblyReference.cache
+C:\Users\ps-it4\source\repos\FileMover\FileMover\obj\Debug\App.g.cs
+C:\Users\ps-it4\source\repos\FileMover\FileMover\obj\Debug\FileMover_MarkupCompile.cache
+C:\Users\ps-it4\source\repos\FileMover\FileMover\obj\Debug\FileMover_MarkupCompile.lref
+C:\Users\ps-it4\source\repos\FileMover\FileMover\bin\Debug\FileMover.exe.config
+C:\Users\ps-it4\source\repos\FileMover\FileMover\bin\Debug\FileMover.exe
+C:\Users\ps-it4\source\repos\FileMover\FileMover\bin\Debug\FileMover.pdb
+C:\Users\ps-it4\source\repos\FileMover\FileMover\obj\Debug\FileMover.g.resources
+C:\Users\ps-it4\source\repos\FileMover\FileMover\obj\Debug\FileMover.Properties.Resources.resources
+C:\Users\ps-it4\source\repos\FileMover\FileMover\obj\Debug\FileMover.csproj.GenerateResource.cache
+C:\Users\ps-it4\source\repos\FileMover\FileMover\obj\Debug\FileMover.csproj.CoreCompileInputs.cache
+C:\Users\ps-it4\source\repos\FileMover\FileMover\obj\Debug\FileMover.exe
+C:\Users\ps-it4\source\repos\FileMover\FileMover\obj\Debug\FileMover.pdb
+C:\Users\ps-it4\source\repos\FileMover\FileMover\obj\Debug\View\MainWindow.g.cs
+C:\Users\ps-it4\source\repos\FileMover\FileMover\obj\Debug\View\MainWindow.baml

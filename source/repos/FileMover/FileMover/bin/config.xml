@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<settings>
+  <files>
+    <type>.txt</type>
+    <type>.tmp</type>
+    <type>.doc</type>
+    <type>.ppt</type>
+    <type>.xls</type>
+    <type>.xml</type>
+  </files>
+ 
+  <time>
+    <duration>1 hr</duration>
+    <duration>2 hr</duration>
+    <duration>3 hr</duration>
+    <duration>4 hr</duration>
+    <duration>5 hr</duration>
+    <duration>6 hr</duration>
+    </time>
+</settings>
