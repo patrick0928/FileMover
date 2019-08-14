@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.navitaire.com/WebServices/FaultContracts" elementFormDefault="qualified" targetNamespace="http://schemas.navitaire.com/WebServices/FaultContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://5jprodr4xapi.navitaire.com/BookingManager.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://5jprodr4xapi.navitaire.com/BookingManager.svc?xsd=xsd10" namespace="http://www.navitaire.com/Ncl/Validation/ValidationResult" />
+  <xs:complexType name="APIGeneralFault">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:APIFault">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="APIGeneralFault" nillable="true" type="tns:APIGeneralFault" />
+  <xs:complexType name="APIFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UniqueID" type="ser:guid" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="APIFault" nillable="true" type="tns:APIFault" />
+  <xs:complexType name="APIValidationFault">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:APIFault">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://www.navitaire.com/Ncl/Validation/ValidationResult" minOccurs="0" name="ValidationResults" nillable="true" type="q1:ArrayOfValidationResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="APIValidationFault" nillable="true" type="tns:APIValidationFault" />
+  <xs:complexType name="APISecurityFault">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:APIFault">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="APISecurityFault" nillable="true" type="tns:APISecurityFault" />
+  <xs:complexType name="APICriticalFault">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:APIFault">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="APICriticalFault" nillable="true" type="tns:APICriticalFault" />
+  <xs:complexType name="APIWarningFault">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:APIFault">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="APIWarningFault" nillable="true" type="tns:APIWarningFault" />
+  <xs:complexType name="APIUnhandledServerFault">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:APIWarningFault">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="APIUnhandledServerFault" nillable="true" type="tns:APIUnhandledServerFault" />
+</xs:schema>

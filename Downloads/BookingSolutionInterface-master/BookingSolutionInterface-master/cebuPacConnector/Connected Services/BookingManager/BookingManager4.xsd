@@ -1,0 +1,924 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.navitaire.com/WebServices/ServiceContracts/BookingService" elementFormDefault="qualified" targetNamespace="http://schemas.navitaire.com/WebServices/ServiceContracts/BookingService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://5jprodr4xapi.navitaire.com/BookingManager.svc?xsd=xsd2" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Booking" />
+  <xs:import schemaLocation="https://5jprodr4xapi.navitaire.com/BookingManager.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="https://5jprodr4xapi.navitaire.com/BookingManager.svc?xsd=xsd13" namespace="http://schemas.navitaire.com/WebServices/DataContracts/TravelCommerce" />
+  <xs:element name="GetAvailabilityRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q1:TripAvailabilityRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvailabilityByTripResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q2:GetTripAvailabilityResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLowFareAvailabilityRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q3:AvailabilityRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLowFareAvailabilityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q4:GetAvailabilityResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLowFareAVSMessageRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q5:LowFareAVSMessageRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLowFareAVSMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q6:LowFareAVSMessageResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLowFareTripAvailabilityRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q7:LowFareTripAvailabilityRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLowFareTripAvailabilityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q8:LowFareTripAvailabilityResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoveAvailabilityRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q9:MoveAvailabilityRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoveAvailabilityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q10:MoveAvailabilityResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoveFeePriceRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q11:MoveFeePriceRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoveFeePriceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q12:MoveFeePriceResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSSRAvailabilityRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q13:SSRAvailabilityRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSSRAvailabilityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q14:SSRAvailabilityResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSSRAvailabilityForBookingRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q15:SSRAvailabilityForBookingRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSSRAvailabilityForBookingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q16:SSRAvailabilityForBookingResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBookingRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" name="GetBookingReqData" nillable="true" type="q17:GetBookingRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBookingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q18:Booking" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBookingFromStateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q19:BookingData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBookingHistoryRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" name="GetBookingHistoryReqData" nillable="true" type="q20:GetBookingHistoryRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBookingHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q21:GetBookingHistoryResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBookingBaggageRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q22:GetBookingBaggageReqData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBookingBaggageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" name="PassengerBags" nillable="true" type="q23:ArrayOfPassengerBag" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AcceptScheduleChangesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q24:AcceptScheduleChangesRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddBookingCommentsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" name="AddBookingCommentsReqData" nillable="true" type="q25:AddBookingCommentsRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddBookingCommentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q26:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecordLocatorListRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q27:RecordLocatorRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecordLocatorListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RecordLocatorList" nillable="true" type="q28:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q29:CancelRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q30:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DivideRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q31:DivideReqData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DivideResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q32:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FareOverrideRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q33:FareOverrideRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FareOverrideResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q34:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBookingPaymentsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" name="GetBookingPaymentsReqData" nillable="true" type="q35:GetBookingPaymentsRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBookingPaymentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q36:getBookingPaymentRespData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPaymentToBookingRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q37:addPaymentToBookingReqData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPaymentToBookingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q38:BookingPaymentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddInProcessPaymentToBookingRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q39:Payment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddInProcessPaymentToBookingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q40:BookingPaymentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApplyPromotionRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" name="ApplyPromotionReqData" nillable="true" type="q41:ApplyPromotionRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApplyPromotionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q42:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DCCQueryRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" name="DCCQueryRequestData" nillable="true" type="q43:DCCQueryRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DCCQueryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q44:DCCQueryPaymentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DCCPaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q45:PaymentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentFeePriceRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q46:paymentFeePriceReqData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentFeePriceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q47:paymentFeePriceRespData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSeatAvailabilityRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q48:SeatAvailabilityRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSeatAvailabilityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q49:SeatAvailabilityResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignSeatsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q50:SellSeatRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignSeatsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q51:BookingUpdateResponseData" />
+        <xs:element xmlns:q52="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q52:AssignedSeatInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnassignSeatsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" name="SellSeatRequest" nillable="true" type="q53:SeatSellRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnassignSeatsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q54:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CommitRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q55:BookingRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CommitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q56:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PriceItineraryRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" name="ItineraryPriceRequest" nillable="true" type="q57:ItineraryPriceRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PriceItineraryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q58:Booking" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SellRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" name="SellRequestData" nillable="true" type="q59:SellRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SellResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q60:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFeeStatusRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" name="UpdateFeeStatusReqData" nillable="true" type="q61:UpdateFeeStatusRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTicketsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q62:TicketRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTicketsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q63:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpgradeRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q64:UpgradeRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpgradeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q65:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DowngradeRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q66:DowngradeRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DowngradeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q67:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpgradeAvailabilityRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q68:UpgradeAvailabilityRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUpgradeAvailabilityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q69:UpgradeAvailabilityResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeSourcePointOfSaleRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q70:UpdateSourcePointOfSaleRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeSourcePointOfSaleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q71:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEquipmentPropertiesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q72:EquipmentListRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEquipmentPropertiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q73:EquipmentListResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OverrideFeeRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" name="FeeRequest" nillable="true" type="q74:FeeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OverrideFeeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q75:Booking" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePassengersRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" name="updatePassengersRequestData" nillable="true" type="q76:UpdatePassengersRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePassengerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q77:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSSRRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q78:SSRRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSSRResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q79:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePriceRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" name="PriceRequestData" nillable="true" type="q80:PriceRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePriceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q81:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CaptureBaggageEventRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q82:CaptureBaggageEventRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CaptureBaggageEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q83:CaptureBaggageEventResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateGuestValuesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q84:GuestValuesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateGuestValuesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q85:Succeeded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ScorePassengersRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q86:PassengerScoresRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ScorePassengersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q87:GetPassengerScoresResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BookingCommitRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q88:BookingCommitRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BookingCommitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q89:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResellSSRRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q90:ResellSSR" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResellSSRResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q91:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateContactsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" name="updateContactsRequestData" nillable="true" type="q92:UpdateContactsRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateContactsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q93:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBookingComponentDataRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q94:UpdateBookingComponentDataRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBookingComponentDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q95:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TravelCommerceSellRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q96:TravelCommerceSellRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TravelCommerceSellResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q97:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TravelCommerceCancelServiceRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.navitaire.com/WebServices/DataContracts/TravelCommerce" minOccurs="0" ref="q98:ServiceCancelRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TravelCommerceCancelServiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q99="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q99:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvailabilityVer2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q100:GetTripAvailabilityVer2Response" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoveAvailabilityVer2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q101:MoveAvailabilityResponseVer2" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemovePaymentFromBookingRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q102="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q102:RemovePaymentFromBookingRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemovePaymentFromBookingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q103="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q103:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelSegmentRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q104="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q104:CancelSegmentRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelSegmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q105="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q105:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTripAvailabilityWithSSRRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q106="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q106:TripAvailabilityWithSSRRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTripAvailabilityWithSSRResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q107="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q107:TripAvailabilityWithSSRResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStandByAvailabilityRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q108="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q108:TripAvailabilityRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStandByAvailabilityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q109="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q109:GetTripAvailabilityResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindBookingNotificationHistoryRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q110="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q110:FindBookingNotificationHistoryRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindBookingNotificationHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q111="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q111:FindBookingNotificationHistoryResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SellServiceBundleRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q112="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q112:SellServiceBundleRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SellServiceBundleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q113="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q113:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServiceBundleOffersRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q114="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" name="GetServiceBundleOffersRequestData" nillable="true" type="q114:GetServiceBundleOffersRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServiceBundleOffersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q115="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q115:GetServiceBundleOffersResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExternalTicketDataRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q116="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q116:ETicketDisplayRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExternalTicketDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q117="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q117:ETicketDisplayResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MovePassengersToBaggageGroupRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q118="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q118:movePassengersToBaggageGroupRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MovePassengersToBaggageGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q119="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q119:movePassengersToBaggageGroupResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBaggageAllowancesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q120="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q120:getBaggageAllowancesRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBaggageAllowancesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q121="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q121:getBaggageAllowancesResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessBaggageRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q122="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" name="ProcessBaggageRequestData" nillable="true" type="q122:ProcessBaggageRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessBaggageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q123="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q123:ProcessBaggageResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetSamplingRandomNumberRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q124="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q124:SamplingRandomNumber" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PassengerBaggageGroupMembershipRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q125="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" name="PassengerBaggageGroupMembershipRequestData" nillable="true" type="q125:PassengerBaggageGroupMembershipRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PassengerBaggageGroupMembershipResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q126="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q126:PassengerBaggageGroupMembershipResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGroupNameRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q127="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q127:GroupName" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGroupNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q128="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q128:BookingUpdateResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGovernmentSecurityRequirementsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q129="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q129:GetGovernmentSecurityRequirementsRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGovernmentSecurityRequirementsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q130="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q130:GetGovernmentSecurityRequirementsResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateGSTNumberRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q131="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q131:_validateGSTNumberRequestData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateGSTNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q132="http://schemas.navitaire.com/WebServices/DataContracts/Booking" minOccurs="0" ref="q132:ValidateGSTNumberResponseData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

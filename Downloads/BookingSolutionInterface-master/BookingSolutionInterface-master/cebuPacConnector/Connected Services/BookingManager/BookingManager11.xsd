@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.navitaire.com/Ncl/Validation/ValidationResult" elementFormDefault="qualified" targetNamespace="http://www.navitaire.com/Ncl/Validation/ValidationResult" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://5jprodr4xapi.navitaire.com/BookingManager.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/Navitaire.Ncl.Collections" />
+  <xs:complexType name="ArrayOfValidationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ValidationResult" nillable="true" type="tns:ValidationResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfValidationResult" nillable="true" type="tns:ArrayOfValidationResult" />
+  <xs:complexType name="ValidationResult">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Navitaire.Ncl.Collections" minOccurs="0" name="Annotations" nillable="true" type="q1:SerializableDictionaryOfstringstring" />
+      <xs:element minOccurs="0" name="FailedValidationDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Successful" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidationResult" nillable="true" type="tns:ValidationResult" />
+</xs:schema>

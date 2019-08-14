@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://schemas.navitaire.com/WebServices" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SessionManager" targetNamespace="http://schemas.navitaire.com/WebServices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_ISessionManager_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://schemas.navitaire.com/WebServices/Imports">
+      <xsd:import schemaLocation="https://5jprodr4xapi.navitaire.com/SessionManager.svc?xsd=xsd0" namespace="http://schemas.navitaire.com/WebServices/ServiceContracts/SessionService" />
+      <xsd:import schemaLocation="https://5jprodr4xapi.navitaire.com/SessionManager.svc?xsd=xsd3" namespace="http://schemas.navitaire.com/WebServices" />
+      <xsd:import schemaLocation="https://5jprodr4xapi.navitaire.com/SessionManager.svc?xsd=xsd4" namespace="http://schemas.navitaire.com/WebServices/FaultContracts" />
+      <xsd:import schemaLocation="https://5jprodr4xapi.navitaire.com/SessionManager.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://5jprodr4xapi.navitaire.com/SessionManager.svc?xsd=xsd2" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Session" />
+      <xsd:import schemaLocation="https://5jprodr4xapi.navitaire.com/SessionManager.svc?xsd=xsd5" namespace="http://www.navitaire.com/Ncl/Validation/ValidationResult" />
+      <xsd:import schemaLocation="https://5jprodr4xapi.navitaire.com/SessionManager.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Navitaire.Ncl.Collections" />
+      <xsd:import schemaLocation="https://5jprodr4xapi.navitaire.com/SessionManager.svc?xsd=xsd7" />
+      <xsd:import schemaLocation="https://5jprodr4xapi.navitaire.com/SessionManager.svc?xsd=xsd8" namespace="http://schemas.navitaire.com/WebServices/DataContracts/Common/Enumerations" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ChangePasswordRequest">
+    <wsdl:part xmlns:q1="http://schemas.navitaire.com/WebServices/ServiceContracts/SessionService" name="parameters" element="q1:ChangePasswordRequest" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_ChangePassword_OutputMessage" />
+  <wsdl:message name="ISessionManager_ChangePassword_APICriticalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q2:APICriticalFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_ChangePassword_APIGeneralFaultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q3:APIGeneralFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_ChangePassword_APIFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q4:APIFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_ChangePassword_APIValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q5:APIValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_ChangePassword_APIUnhandledServerFaultFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q6:APIUnhandledServerFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_ChangePassword_APIWarningFaultFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q7:APIWarningFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_ChangePassword_APISecurityFaultFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q8:APISecurityFault" />
+  </wsdl:message>
+  <wsdl:message name="LogonRequest">
+    <wsdl:part xmlns:q9="http://schemas.navitaire.com/WebServices/ServiceContracts/SessionService" name="parameters" element="q9:LogonRequest" />
+  </wsdl:message>
+  <wsdl:message name="LogonRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="EnableExceptionStackTrace" element="tns:EnableExceptionStackTrace" />
+  </wsdl:message>
+  <wsdl:message name="LogonResponse">
+    <wsdl:part name="parameters" element="tns:LogonResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_Logon_APIGeneralFaultFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q10:APIGeneralFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_Logon_APISecurityFaultFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q11:APISecurityFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_Logon_APIFaultFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q12:APIFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_Logon_APIUnhandledServerFaultFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q13:APIUnhandledServerFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_Logon_APICriticalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q14:APICriticalFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_Logon_APIWarningFaultFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q15:APIWarningFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_Logon_APIValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q16:APIValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="LogoutRequest">
+    <wsdl:part xmlns:q17="http://schemas.navitaire.com/WebServices/ServiceContracts/SessionService" name="parameters" element="q17:LogoutRequest" />
+  </wsdl:message>
+  <wsdl:message name="LogoutRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="EnableExceptionStackTrace" element="tns:EnableExceptionStackTrace" />
+    <wsdl:part name="MessageContractVersion" element="tns:MessageContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_Logout_OutputMessage" />
+  <wsdl:message name="ISessionManager_Logout_APIUnhandledServerFaultFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q18:APIUnhandledServerFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_Logout_APIGeneralFaultFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q19:APIGeneralFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_Logout_APIFaultFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q20:APIFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_Logout_APIWarningFaultFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q21:APIWarningFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_Logout_APISecurityFaultFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q22:APISecurityFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_Logout_APICriticalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q23:APICriticalFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_Logout_APIValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q24:APIValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="TransferSessionRequest">
+    <wsdl:part xmlns:q25="http://schemas.navitaire.com/WebServices/ServiceContracts/SessionService" name="parameters" element="q25:TransferSessionRequest" />
+  </wsdl:message>
+  <wsdl:message name="TransferSessionRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+  </wsdl:message>
+  <wsdl:message name="TransferSessionResponse">
+    <wsdl:part xmlns:q26="http://schemas.navitaire.com/WebServices/ServiceContracts/SessionService" name="parameters" element="q26:TransferSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_TransferSession_APIWarningFaultFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q27:APIWarningFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_TransferSession_APIGeneralFaultFault_FaultMessage">
+    <wsdl:part xmlns:q28="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q28:APIGeneralFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_TransferSession_APIValidationFaultFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q29:APIValidationFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_TransferSession_APIFaultFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q30:APIFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_TransferSession_APIUnhandledServerFaultFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q31:APIUnhandledServerFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_TransferSession_APISecurityFaultFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q32:APISecurityFault" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_TransferSession_APICriticalFaultFault_FaultMessage">
+    <wsdl:part xmlns:q33="http://schemas.navitaire.com/WebServices/FaultContracts" name="detail" element="q33:APICriticalFault" />
+  </wsdl:message>
+  <wsdl:message name="KeepAliveRequest">
+    <wsdl:part xmlns:q34="http://schemas.navitaire.com/WebServices/ServiceContracts/SessionService" name="parameters" element="q34:KeepAliveRequest" />
+  </wsdl:message>
+  <wsdl:message name="KeepAliveRequest_Headers">
+    <wsdl:part name="ContractVersion" element="tns:ContractVersion" />
+    <wsdl:part name="EnableExceptionStackTrace" element="tns:EnableExceptionStackTrace" />
+    <wsdl:part name="MessageContractVersion" element="tns:MessageContractVersion" />
+    <wsdl:part name="Signature" element="tns:Signature" />
+  </wsdl:message>
+  <wsdl:message name="ISessionManager_KeepAlive_OutputMessage" />
+  <wsdl:portType name="ISessionManager">
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/ChangePassword" name="ChangePasswordRequest" message="tns:ChangePasswordRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/ChangePasswordResponse" message="tns:ISessionManager_ChangePassword_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/ChangePasswordAPICriticalFaultFault" name="APICriticalFaultFault" message="tns:ISessionManager_ChangePassword_APICriticalFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/ChangePasswordAPIGeneralFaultFault" name="APIGeneralFaultFault" message="tns:ISessionManager_ChangePassword_APIGeneralFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/ChangePasswordAPIFaultFault" name="APIFaultFault" message="tns:ISessionManager_ChangePassword_APIFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/ChangePasswordAPIValidationFaultFault" name="APIValidationFaultFault" message="tns:ISessionManager_ChangePassword_APIValidationFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/ChangePasswordAPIUnhandledServerFaultFault" name="APIUnhandledServerFaultFault" message="tns:ISessionManager_ChangePassword_APIUnhandledServerFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/ChangePasswordAPIWarningFaultFault" name="APIWarningFaultFault" message="tns:ISessionManager_ChangePassword_APIWarningFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/ChangePasswordAPISecurityFaultFault" name="APISecurityFaultFault" message="tns:ISessionManager_ChangePassword_APISecurityFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logon">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/Logon" name="LogonRequest" message="tns:LogonRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/LogonResponse" name="LogonResponse" message="tns:LogonResponse" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/LogonAPIGeneralFaultFault" name="APIGeneralFaultFault" message="tns:ISessionManager_Logon_APIGeneralFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/LogonAPISecurityFaultFault" name="APISecurityFaultFault" message="tns:ISessionManager_Logon_APISecurityFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/LogonAPIFaultFault" name="APIFaultFault" message="tns:ISessionManager_Logon_APIFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/LogonAPIUnhandledServerFaultFault" name="APIUnhandledServerFaultFault" message="tns:ISessionManager_Logon_APIUnhandledServerFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/LogonAPICriticalFaultFault" name="APICriticalFaultFault" message="tns:ISessionManager_Logon_APICriticalFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/LogonAPIWarningFaultFault" name="APIWarningFaultFault" message="tns:ISessionManager_Logon_APIWarningFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/LogonAPIValidationFaultFault" name="APIValidationFaultFault" message="tns:ISessionManager_Logon_APIValidationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/Logout" name="LogoutRequest" message="tns:LogoutRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/LogoutResponse" message="tns:ISessionManager_Logout_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/LogoutAPIUnhandledServerFaultFault" name="APIUnhandledServerFaultFault" message="tns:ISessionManager_Logout_APIUnhandledServerFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/LogoutAPIGeneralFaultFault" name="APIGeneralFaultFault" message="tns:ISessionManager_Logout_APIGeneralFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/LogoutAPIFaultFault" name="APIFaultFault" message="tns:ISessionManager_Logout_APIFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/LogoutAPIWarningFaultFault" name="APIWarningFaultFault" message="tns:ISessionManager_Logout_APIWarningFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/LogoutAPISecurityFaultFault" name="APISecurityFaultFault" message="tns:ISessionManager_Logout_APISecurityFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/LogoutAPICriticalFaultFault" name="APICriticalFaultFault" message="tns:ISessionManager_Logout_APICriticalFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/LogoutAPIValidationFaultFault" name="APIValidationFaultFault" message="tns:ISessionManager_Logout_APIValidationFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransferSession">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/TransferSession" name="TransferSessionRequest" message="tns:TransferSessionRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/TransferSessionResponse" name="TransferSessionResponse" message="tns:TransferSessionResponse" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/TransferSessionAPIWarningFaultFault" name="APIWarningFaultFault" message="tns:ISessionManager_TransferSession_APIWarningFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/TransferSessionAPIGeneralFaultFault" name="APIGeneralFaultFault" message="tns:ISessionManager_TransferSession_APIGeneralFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/TransferSessionAPIValidationFaultFault" name="APIValidationFaultFault" message="tns:ISessionManager_TransferSession_APIValidationFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/TransferSessionAPIFaultFault" name="APIFaultFault" message="tns:ISessionManager_TransferSession_APIFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/TransferSessionAPIUnhandledServerFaultFault" name="APIUnhandledServerFaultFault" message="tns:ISessionManager_TransferSession_APIUnhandledServerFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/TransferSessionAPISecurityFaultFault" name="APISecurityFaultFault" message="tns:ISessionManager_TransferSession_APISecurityFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/TransferSessionAPICriticalFaultFault" name="APICriticalFaultFault" message="tns:ISessionManager_TransferSession_APICriticalFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KeepAlive">
+      <wsdl:input wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/KeepAlive" name="KeepAliveRequest" message="tns:KeepAliveRequest" />
+      <wsdl:output wsaw:Action="http://schemas.navitaire.com/WebServices/ISessionManager/KeepAliveResponse" message="tns:ISessionManager_KeepAlive_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISessionManager" type="tns:ISessionManager">
+    <wsp:PolicyReference URI="#BasicHttpBinding_ISessionManager_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/ISessionManager/ChangePassword" style="document" />
+      <wsdl:input name="ChangePasswordRequest">
+        <soap:header message="tns:ChangePasswordRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APICriticalFaultFault">
+        <soap:fault use="literal" name="APICriticalFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIGeneralFaultFault">
+        <soap:fault use="literal" name="APIGeneralFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIFaultFault">
+        <soap:fault use="literal" name="APIFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIValidationFaultFault">
+        <soap:fault use="literal" name="APIValidationFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIUnhandledServerFaultFault">
+        <soap:fault use="literal" name="APIUnhandledServerFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIWarningFaultFault">
+        <soap:fault use="literal" name="APIWarningFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APISecurityFaultFault">
+        <soap:fault use="literal" name="APISecurityFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Logon">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/ISessionManager/Logon" style="document" />
+      <wsdl:input name="LogonRequest">
+        <soap:header message="tns:LogonRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:LogonRequest_Headers" part="EnableExceptionStackTrace" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="LogonResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIGeneralFaultFault">
+        <soap:fault use="literal" name="APIGeneralFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APISecurityFaultFault">
+        <soap:fault use="literal" name="APISecurityFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIFaultFault">
+        <soap:fault use="literal" name="APIFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIUnhandledServerFaultFault">
+        <soap:fault use="literal" name="APIUnhandledServerFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APICriticalFaultFault">
+        <soap:fault use="literal" name="APICriticalFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIWarningFaultFault">
+        <soap:fault use="literal" name="APIWarningFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIValidationFaultFault">
+        <soap:fault use="literal" name="APIValidationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/ISessionManager/Logout" style="document" />
+      <wsdl:input name="LogoutRequest">
+        <soap:header message="tns:LogoutRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:LogoutRequest_Headers" part="EnableExceptionStackTrace" use="literal" />
+        <soap:header message="tns:LogoutRequest_Headers" part="MessageContractVersion" use="literal" />
+        <soap:header message="tns:LogoutRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIUnhandledServerFaultFault">
+        <soap:fault use="literal" name="APIUnhandledServerFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIGeneralFaultFault">
+        <soap:fault use="literal" name="APIGeneralFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIFaultFault">
+        <soap:fault use="literal" name="APIFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIWarningFaultFault">
+        <soap:fault use="literal" name="APIWarningFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APISecurityFaultFault">
+        <soap:fault use="literal" name="APISecurityFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APICriticalFaultFault">
+        <soap:fault use="literal" name="APICriticalFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIValidationFaultFault">
+        <soap:fault use="literal" name="APIValidationFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="TransferSession">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/ISessionManager/TransferSession" style="document" />
+      <wsdl:input name="TransferSessionRequest">
+        <soap:header message="tns:TransferSessionRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="TransferSessionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIWarningFaultFault">
+        <soap:fault use="literal" name="APIWarningFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIGeneralFaultFault">
+        <soap:fault use="literal" name="APIGeneralFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIValidationFaultFault">
+        <soap:fault use="literal" name="APIValidationFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIFaultFault">
+        <soap:fault use="literal" name="APIFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APIUnhandledServerFaultFault">
+        <soap:fault use="literal" name="APIUnhandledServerFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APISecurityFaultFault">
+        <soap:fault use="literal" name="APISecurityFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="APICriticalFaultFault">
+        <soap:fault use="literal" name="APICriticalFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="KeepAlive">
+      <soap:operation soapAction="http://schemas.navitaire.com/WebServices/ISessionManager/KeepAlive" style="document" />
+      <wsdl:input name="KeepAliveRequest">
+        <soap:header message="tns:KeepAliveRequest_Headers" part="ContractVersion" use="literal" />
+        <soap:header message="tns:KeepAliveRequest_Headers" part="EnableExceptionStackTrace" use="literal" />
+        <soap:header message="tns:KeepAliveRequest_Headers" part="MessageContractVersion" use="literal" />
+        <soap:header message="tns:KeepAliveRequest_Headers" part="Signature" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SessionManager">
+    <wsdl:port name="BasicHttpBinding_ISessionManager" binding="tns:BasicHttpBinding_ISessionManager">
+      <soap:address location="https://5jprodr4xapi.navitaire.com/SessionManager.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
